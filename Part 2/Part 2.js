@@ -32,3 +32,128 @@
  */
 
 //writ your code here .....
+var players=[];
+function player(name){
+	
+	var play={};
+	play.name=name;
+	play.info={};
+	play.addInfo=addInfo;
+	play.increaseLevel=increaseLevel;
+	play.isAvailable=isAvailable;
+	return play;
+
+}
+var addInfo=function(age, position, level, availability ){
+
+	var x= this.info;
+	var name=this.name;
+	x.name=name;
+	 x.age=age;
+	 x.position=position;
+	 x.level=level;
+	 x.availability=availability;
+
+	 players.push(x);
+	 
+}
+var increaseLevel=function(n){
+
+	var x=this.info;
+	x.level=n;
+
+
+}
+var isAvailable=function(){
+
+	var x=this.info;
+	if(x.availability==true){
+		return true;
+	}
+	return false;
+}
+
+function iterat(array){
+
+	each(array,function(x){
+
+		if(x['age']>30){
+			var y=x['level']-1;
+			x['level']=y;
+
+		}
+	})
+
+}
+
+
+
+
+/////////// helper
+function each(coll, f) {
+if (Array.isArray(coll)) {
+    for (var i = 0; i < coll.length; i++) {
+         f(coll[i], i);
+    }
+} else {
+    for (var key in coll) {
+         f(coll[key], key);
+    }
+ }
+}
+
+function sort(array,by){
+	var narr=[];
+	var narr2=[];
+	
+
+		if(by=="name"){
+
+			each(array,function(x){
+
+		narr.push(x['name'])
+	})
+	 narr.sort();
+
+	 each(narr,function(x){
+	 	var i=x;
+
+	 	each(array,function(x){
+	 		if(x['name']==i){
+
+	 			narr2.push(x);
+	 		}
+
+
+	 	})
+	 })
+		}
+
+		if(by=="age"){
+			each(array,function(x){
+
+		narr.push(x['age'])
+		narr.sort();
+	})
+
+
+	 each(narr,function(x){
+	 	var i=x;
+
+	 	each(array,function(x){
+	 		if(x['age']==i){
+
+	 			narr2.push(x);
+	 		}
+
+
+	 	})
+	 })
+		}
+		
+
+
+	
+	return narr2;
+
+}

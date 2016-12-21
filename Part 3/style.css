@@ -1,0 +1,11 @@
+body{
+	background-color: red;
+}
+header{
+	font-family: -webkit-pictograph;
+}
+
+.textinput{
+	width: 183px;
+    height: 130px;
+}
